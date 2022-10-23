@@ -3,11 +3,9 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /* подключим пространство чтобы воспользоваться классом Asset */
-
 use Bitrix\Main\Page\Asset;
 
 /* создадим экземпляр Asset`a */
-
 $asset = Asset::getInstance();
 
 /* воспользуемся методом, для подключения css */
@@ -21,6 +19,10 @@ $asset->addCss(SITE_TEMPLATE_PATH . "/css/style.css");
 $asset->addJs(SITE_TEMPLATE_PATH . "/js/jquery.min.js");
 $asset->addJs(SITE_TEMPLATE_PATH . "/js/responsiveslides.min.js");
 $asset->addJs(SITE_TEMPLATE_PATH . "/js/jquery.flexisel.js");  /* нижний слайдер */
+
+/* подключение ШРИФТОВ */
+$asset->addString("<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>");
+$asset->addString("<link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700' rel='stylesheet' type='text/css'>");
 ?>
 
 
@@ -31,7 +33,7 @@ $asset->addJs(SITE_TEMPLATE_PATH . "/js/jquery.flexisel.js");  /* нижний �
    <!-- связываем подключенные стили со страницей -->
    <?php $APPLICATION->ShowHead() ?>
 
-   <title>Voguish a Blogging Category Flat Bootstarp Responsive Website Template | Home :: w3layouts</title>
+   <title><?php $APPLICATION->ShowTitle() ?></title>
    <!-- стили подключил -->
    <!-- <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"> -->
    <!-- <link href="css/style.css" rel="stylesheet" type="text/css" media="all" /> -->
@@ -48,11 +50,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
          window.scrollTo(0, 1);
       }
    </script>
-   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>
-   <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700' rel='stylesheet' type='text/css'>
+   <!-- подключил -->
+   <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'> -->
+   <!-- <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400,700' rel='stylesheet' type='text/css'> -->
    <!--  -->
-   <script src="js/jquery.min.js"></script>
-   <script src="js/responsiveslides.min.js"></script>
+   <!-- <script src="js/jquery.min.js"></script> -->
+   <!-- <script src="js/responsiveslides.min.js"></script> -->
    <script>
       $(function() {
          $("#slider").responsiveSlides({
@@ -68,18 +71,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-<div id="panel"><?$APPLICATION->ShowPanel();?></div>
+<div id="panel"><?/* $APPLICATION->ShowPanel(); */?></div>
    <!-- header -->
    <div class="header">
       <div class="container">
          <div class="logo">
-            <a href="index.html"><img src="<?=SITE_TEMPLATE_PATH ?>/images/logo.png" class="img-responsive" alt=""></a>
+            <a href="/"><img src="<?=SITE_TEMPLATE_PATH ?>/images/logo.png" class="img-responsive" alt=""></a>
          </div>
 
          <div class="head-nav">
             <span class="menu"> </span>
             <ul class="cl-effect-1">
-               <li class="active"><a href="index.html">Home</a></li>
+               <li class="active"><a href="/">Home</a></li>
                <li><a href="about.html">About Us</a></li>
                <li><a href="services.html">Services</a></li>
                <li><a href="blog.html">Blog</a></li>
@@ -106,3 +109,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    </div>
    <!-- header -->
    <div class="container">
+      <!-- НУЖНО ПОДУМАТЬ ПОЧЕМУ bann-right ОТКРЫВАЕТСЯ ЗДЕСЬ -->
+      <div class="col-md-9 bann-right">
