@@ -3,9 +3,11 @@
 if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 /* подключим пространство чтобы воспользоваться классом Asset */
+
 use Bitrix\Main\Page\Asset;
 
 /* создадим экземпляр Asset`a */
+
 $asset = Asset::getInstance();
 
 /* воспользуемся методом, для подключения css */
@@ -71,13 +73,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-<div id="panel"><?/* $APPLICATION->ShowPanel(); */?></div>
+   <div id="panel"><? $APPLICATION->ShowPanel(); ?></div>
    <!-- header -->
    <div class="header">
       <div class="container">
-         <div class="logo">
-            <a href="/"><img src="<?=SITE_TEMPLATE_PATH ?>/images/logo.png" class="img-responsive" alt=""></a>
-         </div>
+         
+         <!-- необходимо логотип заменить на компонент "включаемая область" -->
+         <!-- <div class="logo">
+            <a href="/"><img src="<?php /* SITE_TEMPLATE_PATH */?>/images/logo.png" class="img-responsive" alt=""></a>
+         </div> -->
+
+         <!-- "bitrix:main.include" - наименование компонента -->
+         <?php $APPLICATION->IncludeComponent(
+            "bitrix:main.include", 
+            "", 
+            array(
+               "AREA_FILE_SHOW" => "file",
+               "AREA_FILE_SUFFIX" => "inc",
+               "EDIT_TEMPLATE" => "",
+               "PATH" => "/include/logo.php"
+            )
+         ); ?>
 
          <div class="head-nav">
             <span class="menu"> </span>
@@ -110,4 +126,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <!-- header -->
    <div class="container">
       <!-- НУЖНО ПОДУМАТЬ ПОЧЕМУ bann-right ОТКРЫВАЕТСЯ ЗДЕСЬ -->
+      <!-- короче, в это открывающийся DIV вставится контент из index.php/либо другой открытой страници -->
+      <!-- верстка при этом, не поломается -->
       <div class="col-md-9 bann-right">
