@@ -9,8 +9,7 @@ use Bitrix\Main\Page\Asset;
 $asset = Asset::getInstance();
 
 /* воспользуемся методом, для подключения css */
-/* .min. подключатся автоматически */
-$asset->addCss(SITE_TEMPLATE_PATH . "/css/bootstrap.css");
+$asset->addCss(SITE_TEMPLATE_PATH . "/css/bootstrap.min.css");
 $asset->addCss(SITE_TEMPLATE_PATH . "/css/styles.css");
 
 /* нужно также связать подключенные файлы с телом страницы  $APPLICATION->ShowHead() в теге <head>*/
@@ -27,7 +26,7 @@ $asset->addJs(SITE_TEMPLATE_PATH . "/js/bootstrap.bundle.min.js");
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.104.2">
-    <title>Blog Template · Bootstrap v5.2</title>
+    <title>blog</title>
 
     <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/blog/"> -->
 
@@ -36,7 +35,7 @@ $asset->addJs(SITE_TEMPLATE_PATH . "/js/bootstrap.bundle.min.js");
 
     
 
-<link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet"> -->
 
     <style>
       .bd-placeholder-img {
@@ -93,12 +92,13 @@ $asset->addJs(SITE_TEMPLATE_PATH . "/js/bootstrap.bundle.min.js");
 
     
     <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Playfair&#43;Display:700,900&amp;display=swap" rel="stylesheet"> -->
     <!-- Custom styles for this template -->
-    <link href="blog.css" rel="stylesheet">
+    <!-- <link href="blog.css" rel="stylesheet"> -->
   </head>
-  <body>
-    
+
+<body>
+<div id="panel"><? $APPLICATION->ShowPanel(); ?></div> 
 <div class="container">
   <header class="blog-header lh-1 py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
