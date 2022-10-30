@@ -77,16 +77,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
    <!-- header -->
    <div class="header">
       <div class="container">
-         
+
          <!-- необходимо логотип заменить на компонент "включаемая область" -->
          <!-- <div class="logo">
-            <a href="/"><img src="<?php /* SITE_TEMPLATE_PATH */?>/images/logo.png" class="img-responsive" alt=""></a>
+            <a href="/"><img src="<?php /* SITE_TEMPLATE_PATH */ ?>/images/logo.png" class="img-responsive" alt=""></a>
          </div> -->
 
          <!-- "bitrix:main.include" - наименование компонента -->
          <?php $APPLICATION->IncludeComponent(
-            "bitrix:main.include", 
-            "", 
+            "bitrix:main.include",
+            "",
             array(
                "AREA_FILE_SHOW" => "file",
                "AREA_FILE_SUFFIX" => "inc",
@@ -95,7 +95,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             )
          ); ?>
 
-         <div class="head-nav">
+         <!-- меню -->
+         <!-- <div class="head-nav">
             <span class="menu"> </span>
             <ul class="cl-effect-1">
                <li class="active"><a href="/">Home</a></li>
@@ -107,7 +108,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                <li><a href="contact.html">Contact</a></li>
                <div class="clearfix"></div>
             </ul>
-         </div>
+         </div> -->
+
+         <!-- компонент меню -->
+         <? $APPLICATION->IncludeComponent("bitrix:menu", "main_menu", Array(
+	"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
+		"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
+		"DELAY" => "N",	// Откладывать выполнение шаблона меню
+		"MAX_LEVEL" => "1",	// Уровень вложенности меню
+		"MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
+			0 => "",
+		),
+		"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
+		"MENU_CACHE_TYPE" => "N",	// Тип кеширования
+		"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
+		"ROOT_MENU_TYPE" => "main",	// Тип меню для первого уровня
+		"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
+	),
+	false
+); ?>
+
          <!-- script-for-nav -->
          <script>
             $("span.menu").click(function() {
