@@ -26,8 +26,19 @@ $APPLICATION->SetTitle("Title");
         "PATH" => ""
       )
     ); ?>
+
+    <!-- сделаю ещё одну включаемую область -->
+    <!-- <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p> -->
+    <? $APPLICATION->IncludeComponent(
+      "bitrix:main.include",
+      "",
+      array(
+        "AREA_FILE_SHOW" => "page",
+        "AREA_FILE_SUFFIX" => "inc2",
+        "EDIT_TEMPLATE" => ""
+      )
+    ); ?>
     
-    <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
     <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
   </div>
 </div>
