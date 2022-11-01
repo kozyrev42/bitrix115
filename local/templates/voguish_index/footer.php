@@ -72,84 +72,91 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 </div>
 
 <div class="clearfix"> </div>
-<div class="fle-xsel">
-   <ul id="flexiselDemo3">
-      <li>
-         <a href="#">
-            <div class="banner-1">
-               <img src="<?= SITE_TEMPLATE_PATH ?>/images/6.jpg" class="img-responsive" alt="">
-            </div>
-         </a>
-      </li>
-      <li>
-         <a href="#">
-            <div class="banner-1">
-               <img src="<?= SITE_TEMPLATE_PATH ?>/images/5.jpg" class="img-responsive" alt="">
-            </div>
-         </a>
-      </li>
-      <li>
-         <a href="#">
-            <div class="banner-1">
-               <img src="<?= SITE_TEMPLATE_PATH ?>/images/1.jpg" class="img-responsive" alt="">
-            </div>
-         </a>
-      </li>
-      <li>
-         <a href="#">
-            <div class="banner-1">
-               <img src="<?= SITE_TEMPLATE_PATH ?>/images/4.jpg" class="img-responsive" alt="">
-            </div>
-         </a>
-      </li>
-      <li>
-         <a href="#">
-            <div class="banner-1">
-               <img src="<?= SITE_TEMPLATE_PATH ?>/images/6.jpg" class="img-responsive" alt="">
-            </div>
-         </a>
-      </li>
-      <li>
-         <a href="#">
-            <div class="banner-1">
-               <img src="<?= SITE_TEMPLATE_PATH ?>/images/1.jpg" class="img-responsive" alt="">
-            </div>
-         </a>
-      </li>
-   </ul>
 
-   <script type="text/javascript">
-      $(window).load(function() {
+<!-- слайдер, рендерится только на главной -->
+<?php if ($APPLICATION->GetCurPage(false) === "/") : ?>
+   <div class="fle-xsel">
+      <ul id="flexiselDemo3">
+         <li>
+            <a href="#">
+               <div class="banner-1">
+                  <img src="<?= SITE_TEMPLATE_PATH ?>/images/6.jpg" class="img-responsive" alt="">
+               </div>
+            </a>
+         </li>
+         <li>
+            <a href="#">
+               <div class="banner-1">
+                  <img src="<?= SITE_TEMPLATE_PATH ?>/images/5.jpg" class="img-responsive" alt="">
+               </div>
+            </a>
+         </li>
+         <li>
+            <a href="#">
+               <div class="banner-1">
+                  <img src="<?= SITE_TEMPLATE_PATH ?>/images/1.jpg" class="img-responsive" alt="">
+               </div>
+            </a>
+         </li>
+         <li>
+            <a href="#">
+               <div class="banner-1">
+                  <img src="<?= SITE_TEMPLATE_PATH ?>/images/4.jpg" class="img-responsive" alt="">
+               </div>
+            </a>
+         </li>
+         <li>
+            <a href="#">
+               <div class="banner-1">
+                  <img src="<?= SITE_TEMPLATE_PATH ?>/images/6.jpg" class="img-responsive" alt="">
+               </div>
+            </a>
+         </li>
+         <li>
+            <a href="#">
+               <div class="banner-1">
+                  <img src="<?= SITE_TEMPLATE_PATH ?>/images/1.jpg" class="img-responsive" alt="">
+               </div>
+            </a>
+         </li>
+      </ul>
 
-         $("#flexiselDemo3").flexisel({
-            visibleItems: 5,
-            animationSpeed: 1000,
-            autoPlay: true,
-            autoPlaySpeed: 3000,
-            pauseOnHover: true,
-            enableResponsiveBreakpoints: true,
-            responsiveBreakpoints: {
-               portrait: {
-                  changePoint: 480,
-                  visibleItems: 2
-               },
-               landscape: {
-                  changePoint: 640,
-                  visibleItems: 3
-               },
-               tablet: {
-                  changePoint: 768,
-                  visibleItems: 3
+      <script type="text/javascript">
+         $(window).load(function() {
+
+            $("#flexiselDemo3").flexisel({
+               visibleItems: 5,
+               animationSpeed: 1000,
+               autoPlay: true,
+               autoPlaySpeed: 3000,
+               pauseOnHover: true,
+               enableResponsiveBreakpoints: true,
+               responsiveBreakpoints: {
+                  portrait: {
+                     changePoint: 480,
+                     visibleItems: 2
+                  },
+                  landscape: {
+                     changePoint: 640,
+                     visibleItems: 3
+                  },
+                  tablet: {
+                     changePoint: 768,
+                     visibleItems: 3
+                  }
                }
-            }
-         });
+            });
 
-      });
-   </script>
-   <!-- подключил -->
-   <!-- <script type="text/javascript" src="js/jquery.flexisel.js"></script> -->
-   <div class="clearfix"> </div>
-</div>
+         });
+      </script>
+      <!-- подключил -->
+      <!-- <script type="text/javascript" src="js/jquery.flexisel.js"></script> -->
+      <div class="clearfix"> </div>
+   </div>
+<? endif; ?>
+
+
+
 <div class="footer">
 
    <div class="col-md-3 foot-1">
@@ -162,22 +169,25 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 				</ul> -->
 
       <!-- компонент меню -->
-      <? $APPLICATION->IncludeComponent("bitrix:menu", "niz1_menu", Array(
-	"ALLOW_MULTI_SELECT" => "N",	// Разрешить несколько активных пунктов одновременно
-		"CHILD_MENU_TYPE" => "left",	// Тип меню для остальных уровней
-		"DELAY" => "N",	// Откладывать выполнение шаблона меню
-		"MAX_LEVEL" => "1",	// Уровень вложенности меню
-		"MENU_CACHE_GET_VARS" => array(	// Значимые переменные запроса
-			0 => "",
-		),
-		"MENU_CACHE_TIME" => "3600",	// Время кеширования (сек.)
-		"MENU_CACHE_TYPE" => "N",	// Тип кеширования
-		"MENU_CACHE_USE_GROUPS" => "Y",	// Учитывать права доступа
-		"ROOT_MENU_TYPE" => "bottom1",	// Тип меню для первого уровня
-		"USE_EXT" => "N",	// Подключать файлы с именами вида .тип_меню.menu_ext.php
-	),
-	false
-); ?>
+      <? $APPLICATION->IncludeComponent(
+         "bitrix:menu",
+         "niz1_menu",
+         array(
+            "ALLOW_MULTI_SELECT" => "N",   // Разрешить несколько активных пунктов одновременно
+            "CHILD_MENU_TYPE" => "left",   // Тип меню для остальных уровней
+            "DELAY" => "N",   // Откладывать выполнение шаблона меню
+            "MAX_LEVEL" => "1",   // Уровень вложенности меню
+            "MENU_CACHE_GET_VARS" => array(   // Значимые переменные запроса
+               0 => "",
+            ),
+            "MENU_CACHE_TIME" => "3600",   // Время кеширования (сек.)
+            "MENU_CACHE_TYPE" => "N",   // Тип кеширования
+            "MENU_CACHE_USE_GROUPS" => "Y",   // Учитывать права доступа
+            "ROOT_MENU_TYPE" => "bottom1",   // Тип меню для первого уровня
+            "USE_EXT" => "N",   // Подключать файлы с именами вида .тип_меню.menu_ext.php
+         ),
+         false
+      ); ?>
    </div>
 
    <div class="col-md-3 foot-1">
