@@ -2,9 +2,9 @@
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Блог");
 ?><?$APPLICATION->IncludeComponent(
-	"bitrix:news",
-	"",
-	Array(
+	"bitrix:news", 
+	"my_news", 
+	array(
 		"ADD_ELEMENT_CHAIN" => "N",
 		"ADD_SECTIONS_CHAIN" => "N",
 		"AJAX_MODE" => "N",
@@ -21,11 +21,17 @@ $APPLICATION->SetTitle("Блог");
 		"DETAIL_ACTIVE_DATE_FORMAT" => "j F Y",
 		"DETAIL_DISPLAY_BOTTOM_PAGER" => "Y",
 		"DETAIL_DISPLAY_TOP_PAGER" => "N",
-		"DETAIL_FIELD_CODE" => array("",""),
+		"DETAIL_FIELD_CODE" => array(
+			0 => "",
+			1 => "",
+		),
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
-		"DETAIL_PROPERTY_CODE" => array("AUTHOR",""),
+		"DETAIL_PROPERTY_CODE" => array(
+			0 => "AUTHOR",
+			1 => "",
+		),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
@@ -38,8 +44,15 @@ $APPLICATION->SetTitle("Блог");
 		"IBLOCK_TYPE" => "content",
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "N",
 		"LIST_ACTIVE_DATE_FORMAT" => "j F Y",
-		"LIST_FIELD_CODE" => array("",""),
-		"LIST_PROPERTY_CODE" => array("AUTHOR",""),
+		"LIST_FIELD_CODE" => array(
+			0 => "SHOW_COUNTER",
+			1 => "",
+			2 => "",
+		),
+		"LIST_PROPERTY_CODE" => array(
+			0 => "AUTHOR",
+			1 => "",
+		),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
@@ -70,6 +83,11 @@ $APPLICATION->SetTitle("Блог");
 		"USE_RSS" => "N",
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
-		"VARIABLE_ALIASES" => Array("ELEMENT_ID"=>"ELEMENT_ID","SECTION_ID"=>"SECTION_ID")
-	)
+		"COMPONENT_TEMPLATE" => "my_news",
+		"VARIABLE_ALIASES" => array(
+			"SECTION_ID" => "SECTION_ID",
+			"ELEMENT_ID" => "ELEMENT_ID",
+		)
+	),
+	false
 );?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

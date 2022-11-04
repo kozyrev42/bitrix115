@@ -4,9 +4,9 @@
 
 /* функция для отладки с коротким наименованием */
 /* <?php dd();?> */
-/* function dd(...$data)
+function dd($data)
 {
     echo '<pre>';
         var_dump($data);
     echo '</pre>';
-} */
+}
