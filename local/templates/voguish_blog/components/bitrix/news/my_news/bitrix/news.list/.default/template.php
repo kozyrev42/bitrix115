@@ -90,75 +90,41 @@ $this->setFrameMode(true);
 */ ?>
 
 <div class="blog-articals">
-   <? foreach ($arResult["ITEMS"] as $arItem) : ?>
-      <div class="blog-artical">
-         <div class="blog-artical-info">
-            <div class="blog-artical-info-img">
-               <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" title="post-name"></a>
-            </div>
-            <div class="blog-artical-info-head">
-               <h2><a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><? echo $arItem["NAME"] ?></a></h2>
-               <h6>Posted on, <?= $arItem["DISPLAY_ACTIVE_FROM"] ?> </h6>
+	<? foreach ($arResult["ITEMS"] as $arItem) : ?>
+		<div class="blog-artical">
+			<div class="blog-artical-info">
+				<div class="blog-artical-info-img">
+					<a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" title="post-name"></a>
+				</div>
+				<div class="blog-artical-info-head">
+					<h2><a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><? echo $arItem["NAME"] ?></a></h2>
+					<h6>Posted on, <?= $arItem["DISPLAY_ACTIVE_FROM"] ?> </h6>
 
-            </div>
-            <div class="blog-artical-info-text">
-               <p><?= $arItem["PREVIEW_TEXT"] ?>
-                  <a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">[...]</a>
-               </p>
-            </div>
-            <div class="artical-links">
-               <ul>
-                  <li><small> </small><span><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></span></li>
-                  <li><a href="#"><small class="admin"> </small><span><?= $arItem["PROPERTIES"]["AUTHOR"]["VALUE"] ?></span></a></li>
-                  <li><a href="#"><small class="no"> </small><span>No comments</span></a></li>
-                  <li><a href="#"><small class="posts"> </small><span>View posts: <?= $arItem["SHOW_COUNTER"] ?></span></a></li>
-                  <li><a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><small class="link"> </small><span>permalink</span></a></li>
-               </ul>
-            </div>
-         </div>
-         <div class="clearfix"> </div>
-      </div>
-   <? endforeach; ?>
+				</div>
+				<div class="blog-artical-info-text">
+					<p><?= $arItem["PREVIEW_TEXT"] ?>
+						<a href="<?= $arItem["DETAIL_PAGE_URL"] ?>">[...]</a>
+					</p>
+				</div>
+				<div class="artical-links">
+					<ul>
+						<li><small> </small><span><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></span></li>
+						<li><a href="#"><small class="admin"> </small><span><?= $arItem["PROPERTIES"]["AUTHOR"]["VALUE"] ?></span></a></li>
+						<li><a href="#"><small class="no"> </small><span>No comments</span></a></li>
+						<li><a href="#"><small class="posts"> </small><span>View posts: <?= $arItem["SHOW_COUNTER"] ?></span></a></li>
+						<li><a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><small class="link"> </small><span>permalink</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix"> </div>
+		</div>
+	<? endforeach; ?>
 
-   <!-- пагинация -->
-   <? if ($arParams["DISPLAY_BOTTOM_PAGER"]) : ?>
-      <br /><?= $arResult["NAV_STRING"] ?>
-   <? endif; ?>
+	<!-- пагинация -->
+	<? if ($arParams["DISPLAY_BOTTOM_PAGER"]) : ?>
+		<br /><?= $arResult["NAV_STRING"] ?>
+	<? endif; ?>
 
 </div>
 
-
 <!-- <?php dd($arResult["ITEMS"]); ?> -->
-
-<!-- <div class="blog-articals">
-	<div class="blog-artical">
-		<div class="blog-artical-info">
-			<div class="blog-artical-info-img">
-				<a href="single.html"><img src="images/7.jpg" title="post-name"></a>
-			</div>
-			<div class="blog-artical-info-head">
-				<h2><a href="single.html">Printing and typesetting industry</a></h2>
-				<h6>Posted on, 12 July 2014 at 10.30am by <a href="#"> admin</a></h6>
-
-			</div>
-			<div class="blog-artical-info-text">
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-					Ipsum dummy text of the printing and typesetting industry. Lorem Ipsum dummy
-					text of the printing and typesetting industry. Lorem Ipsum has been the
-					industry's standard dummy has been the industry's standard dummy has been the
-					industry's standard dummy text ever since the 1500s, when an unknown printer
-					took a galley of type and scrambled it to make a type specimen book.<a href="#">[...]</a></p>
-			</div>
-			<div class="artical-links">
-				<ul>
-					<li><small> </small><span>june 14, 2013</span></li>
-					<li><a href="#"><small class="admin"> </small><span>admin</span></a></li>
-					<li><a href="#"><small class="no"> </small><span>No comments</span></a></li>
-					<li><a href="#"><small class="posts"> </small><span>View posts</span></a></li>
-					<li><a href="#"><small class="link"> </small><span>permalink</span></a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="clearfix"> </div>
-	</div>
-</div> -->
