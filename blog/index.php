@@ -64,7 +64,7 @@ $APPLICATION->SetTitle("Блог");
 		"PAGER_TEMPLATE" => "my_pag",
 		"PAGER_TITLE" => "Статьи",
 		"PREVIEW_TRUNCATE_LEN" => "",
-		"SEF_MODE" => "N",
+		"SEF_MODE" => "Y",
 		"SET_LAST_MODIFIED" => "Y",
 		"SET_STATUS_404" => "Y",
 		"SET_TITLE" => "N",
@@ -83,9 +83,11 @@ $APPLICATION->SetTitle("Блог");
 		"USE_SEARCH" => "N",
 		"USE_SHARE" => "N",
 		"COMPONENT_TEMPLATE" => "my_news",
-		"VARIABLE_ALIASES" => array(
-			"SECTION_ID" => "SECTION_ID",
-			"ELEMENT_ID" => "ELEMENT_ID",
+		"SEF_FOLDER" => "/blog/",
+		"SEF_URL_TEMPLATES" => array(
+			"news" => "",
+			"section" => "#SECTION_CODE_PATH#/",
+			"detail" => "#SECTION_CODE_PATH#/#ELEMENT_CODE#",
 		)
 	),
 	false
