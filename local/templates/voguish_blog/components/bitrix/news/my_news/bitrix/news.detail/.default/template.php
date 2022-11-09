@@ -114,3 +114,25 @@ $this->setFrameMode(true);
 		<li><a href="<?= $arResult["DETAIL_PAGE_URL"] ?>"><small class="link"> </small><span>permalink</span></a></li>
 	</ul>
 </div>
+
+<?$APPLICATION->IncludeComponent(
+	"bitrix:catalog.comments",
+	"",
+	Array(
+		"BLOG_USE" => "N",
+		"CACHE_TIME" => "0",
+		"CACHE_TYPE" => "A",
+		"CHECK_DATES" => "Y",
+		"COMMENTS_COUNT" => "5",
+		"ELEMENT_CODE" => "",
+		"ELEMENT_ID" => $_REQUEST["ELEMENT_ID"],
+		"FB_USE" => "N",
+		"IBLOCK_ID" => "",
+		"IBLOCK_TYPE" => "content",
+		"SHOW_DEACTIVATED" => "N",
+		"TEMPLATE_THEME" => "blue",
+		"URL_TO_COMMENT" => "",
+		"VK_USE" => "N",
+		"WIDTH" => ""
+	)
+);?>
