@@ -73,6 +73,21 @@ $this->setFrameMode(true);
 	<? foreach ($arResult["ITEMS"] as $arItem) : ?>
 		<div class="blog-grids">
 			<div class="blog-grid-left">
+
+				<!-- изображение будем редактировать/обрезать -->
+				<?php
+					$file = CFile::ResizeImageGet(
+						$arItem["PREVIEW_PICTURE"],		 // изменяемый файл
+						['width'=>100, 'height'=>100],   // необходимые размеры
+						BX_RESIZE_IMAGE_EXACT,  		 // константа - тип масштабирования
+						true
+						// $file['src'] - вернет путь к уменьшенной картинке
+					);
+
+					// назначаем путь к новой картинке
+					$arItem["PREVIEW_PICTURE"]["SRC"] = $file['src'];
+
+				?>
 				<a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><img src="<?= $arItem["PREVIEW_PICTURE"]["SRC"] ?>" class="img-responsive" alt=""></a>
 			</div>
 
