@@ -420,6 +420,11 @@ ul.callbacks_tabs.callbacks1_tabs {
 .blo-top li a:hover{
 	color:#f53f1a;
 }
+
+.blo-top ul {
+  padding: 0;
+}
+
 .bann-left h3 {
   background: #f53f1a;
   color: #fff;

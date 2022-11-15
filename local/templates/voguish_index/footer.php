@@ -6,12 +6,21 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 </div>
 
 <div class="col-md-3 bann-left">
-   <div class="b-search">
+
+   <!-- форма поиска -->
+   <!-- <div class="b-search">
       <form>
          <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
          <input type="submit" value="">
       </form>
-   </div>
+   </div> -->
+   <? $APPLICATION->IncludeComponent("bitrix:search.form", "search", Array(
+	"PAGE" => "#SITE_DIR#search/index.php",	// Страница выдачи результатов поиска (доступен макрос #SITE_DIR#)
+		"USE_SUGGEST" => "N",	// Показывать подсказку с поисковыми фразами
+	),
+	false
+); ?>
+
    <h3>Recent Posts</h3>
    <!-- отключил верстку, ниже вставлен компонент -->
    <!-- <div class="blo-top">
@@ -123,34 +132,38 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
       <li><a href="#">|| combined with a handful</a></li>
       <li><a href="#">|| which looks reasonable</a></li>
    </div> -->
-   <? $APPLICATION->IncludeComponent("bitrix:catalog.section.list", "categories", Array(
-	"ADD_SECTIONS_CHAIN" => "Y",	// Включать раздел в цепочку навигации
-		"CACHE_FILTER" => "N",	// Кешировать при установленном фильтре
-		"CACHE_GROUPS" => "Y",	// Учитывать права доступа
-		"CACHE_TIME" => "36000000",	// Время кеширования (сек.)
-		"CACHE_TYPE" => "A",	// Тип кеширования
-		"COUNT_ELEMENTS" => "Y",	// Показывать количество элементов в разделе
-		"COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",	// Показывать количество
-		"FILTER_NAME" => "sectionsFilter",	// Имя массива со значениями фильтра разделов
-		"IBLOCK_ID" => "3",	// Инфоблок
-		"IBLOCK_TYPE" => "content",	// Тип инфоблока
-		"SECTION_CODE" => "",	// Код раздела
-		"SECTION_FIELDS" => array(	// Поля разделов
-			0 => "",
-			1 => "",
-		),
-		"SECTION_ID" => $_REQUEST["SECTION_ID"],	// ID раздела
-		"SECTION_URL" => "",	// URL, ведущий на страницу с содержимым раздела
-		"SECTION_USER_FIELDS" => array(	// Свойства разделов
-			0 => "",
-			1 => "",
-		),
-		"SHOW_PARENT_NAME" => "Y",	// Показывать название раздела
-		"TOP_DEPTH" => "1",	// Максимальная отображаемая глубина разделов
-		"VIEW_MODE" => "LINE",	// Вид списка подразделов
-	),
-	false
-); ?>
+   <? $APPLICATION->IncludeComponent(
+      "bitrix:catalog.section.list",
+      "categories",
+      array(
+         "ADD_SECTIONS_CHAIN" => "Y",
+         "CACHE_FILTER" => "N",
+         "CACHE_GROUPS" => "Y",
+         "CACHE_TIME" => "36000000",
+         "CACHE_TYPE" => "A",
+         "COUNT_ELEMENTS" => "N",
+         "COUNT_ELEMENTS_FILTER" => "CNT_ACTIVE",
+         "FILTER_NAME" => "sectionsFilter",
+         "IBLOCK_ID" => "3",
+         "IBLOCK_TYPE" => "content",
+         "SECTION_CODE" => "",
+         "SECTION_FIELDS" => array(
+            0 => "",
+            1 => "",
+         ),
+         "SECTION_ID" => $_REQUEST["SECTION_ID"],
+         "SECTION_URL" => "",
+         "SECTION_USER_FIELDS" => array(
+            0 => "",
+            1 => "",
+         ),
+         "SHOW_PARENT_NAME" => "Y",
+         "TOP_DEPTH" => "1",
+         "VIEW_MODE" => "LINE",
+         "COMPONENT_TEMPLATE" => "categories"
+      ),
+      false
+   ); ?>
 
    <h3>Newsletter</h3>
    <div class="blo-top">
