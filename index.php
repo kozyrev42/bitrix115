@@ -105,8 +105,11 @@ $APPLICATION->SetTitle("Сайт моды");
    </div>
 </div> -->
 <!-- banner -->
+
+<!-- избранные статьи -->
 <!-- nam-matis -->
-<div class="nam-matis">
+<!-- <div class="nam-matis">
+
    <div class="nam-matis-top">
       <div class="col-md-6 nam-matis-1">
          <a href="single.html"><img src="<?= SITE_TEMPLATE_PATH ?>/images/5.jpg" class="img-responsive" alt=""></a>
@@ -120,6 +123,7 @@ $APPLICATION->SetTitle("Сайт моды");
       </div>
       <div class="clearfix"> </div>
    </div>
+
    <div class="nam-matis-top">
       <div class="col-md-6 nam-matis-1">
          <a href="single.html"><img src="<?= SITE_TEMPLATE_PATH ?>/images/4.jpg" class="img-responsive" alt=""></a>
@@ -133,8 +137,51 @@ $APPLICATION->SetTitle("Сайт моды");
       </div>
       <div class="clearfix"> </div>
    </div>
-</div>
+
+</div> -->
+
+<!-- скрипт для вывода -->
+<?php 
+   CModule::IncludeModule('iblock');
+
+   $arSelect = Array("ID", "IBLOCK_ID", "NAME", "PREVIEW_TEXT", "DETAIL_PAGE_URL", "PREVIEW_PICTURE");  
+
+   $arFilter = Array("IBLOCK_ID"=>$IBLOCK_ID, "ACTIVE_DATE"=>"Y", "ACTIVE"=>"Y", "!PROPERTY_SHOW_MAIN"=>false);  
+   // в переменную $res - выбрали объект запроса
+   $res = CIBlockElement::GetList(Array(), $arFilter, false, Array("nPageSize"=>4), $arSelect);
+?>
+<!-- вывод -->
+<!-- проверяем, есть ли результаты выборки, тогда выводим шаблон -->
+<?php if ($res->arResult) : $i = 0; ?>
+   <div class="nam-matis";>
+      <?php while($ob = $res->GetNextElement()) : $arFields = $ob->GetFields(); ?>
+
+         <!-- если делится на 2 без остатка, то открываем див -->
+         <?php if($i % 2 == 0): ?>
+            <div class="nam-matis-top";>
+         <?php endif; ?>
+
+               <!-- методу передаём id, позвращает путь картинки -->
+               <?php $img = CFile::GetPath($arFields["PREVIEW_PICTURE"]);?>
+               
+               <div class="col-md-6 nam-matis-1">
+                  <a href="<?=$arFields["DETAIL_PAGE_URL"]?>"> <img src="<?=$img?>" class="img-responsive" alt=""> </a>
+                  <h3><a href="<?=$arFields["DETAIL_PAGE_URL"]?>"><?=$arFields["NAME"]?></a></h3>
+                  <p><?=$arFields["PREVIEW_TEXT"]?></p>
+               </div>
+
+               <?php if($i % 2 == 1): ?>
+                  <div class="clearfix";> </div>
+               <?php endif; ?>
+
+         <!-- закрываем див по условию -->
+         <?php if($i % 2 == 1): ?>
+            </div>
+         <?php endif; ?>
+
+      <?php $i++; endwhile; ?>
+   </div>
+<?php endif; ?>   
 <!-- nam-matis -->
 
-
-<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?php require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
