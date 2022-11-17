@@ -110,7 +110,8 @@ $this->setFrameMode(true);
 					<ul>
 						<li><small> </small><span><?= $arItem["DISPLAY_ACTIVE_FROM"] ?></span></li>
 						<li><a href="#"><small class="admin"> </small><span><?= $arItem["PROPERTIES"]["AUTHOR"]["VALUE"] ?></span></a></li>
-						<li><a href="#"><small class="no"> </small><span>No comments</span></a></li>
+						<!-- выведем количество комментариев -->
+						<li><a href="#"><small class="no"> </small><span><?= $arItem["PROPERTIES"]["BLOG_COOMMENTS_CNT"]["VALUE"] ?></span></a></li>
 						<li><a href="#"><small class="posts"> </small><span>View posts: <?= $arItem["SHOW_COUNTER"] ?></span></a></li>
 						<li><a href="<?= $arItem["DETAIL_PAGE_URL"] ?>"><small class="link"> </small><span>permalink</span></a></li>
 					</ul>
