@@ -40,8 +40,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
       <a class="twittbtn" href="#">See all Tweets</a>
    </div>
    <!--//End-twitter-weight-->
+
    <!-- start-tag-weight-->
-   <div class="b-tag-weight">
+   <!-- блог с Тегами -->
+   <!-- <div class="b-tag-weight">
       <h3>Tags Weight</h3>
       <ul>
          <li><a href="#">Lorem</a></li>
@@ -57,11 +59,36 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
          <li><a href="#">sit amet</a></li>
          <li><a href="#">ipsum</a></li>
       </ul>
-   </div>
+   </div> -->
+   <!-- вызов компонента Тэгов -->
+   <? $APPLICATION->IncludeComponent("bitrix:search.tags.cloud", "my_tags", Array(
+	"CACHE_TIME" => "3600",	// Время кеширования (сек.)
+		"CACHE_TYPE" => "A",	// Тип кеширования
+		"CHECK_DATES" => "N",	// Искать только в активных по дате документах
+		"COLOR_NEW" => "3E74E6",	// Цвет более позднего тега (пример: "C0C0C0")
+		"COLOR_OLD" => "C0C0C0",	// Цвет более раннего тега (пример: "FEFEFE")
+		"COLOR_TYPE" => "Y",	// Плавное изменение цвета
+		"FILTER_NAME" => "",	// Дополнительный фильтр
+		"FONT_MAX" => "15",	// Максимальный размер шрифта (px)
+		"FONT_MIN" => "10",	// Минимальный  размер шрифта (px)
+		"PAGE_ELEMENTS" => "10",	// Количество тегов
+		"PERIOD" => "",	// Период выборки тегов (дней)
+		"PERIOD_NEW_TAGS" => "",	// Период,  в течение которого считать тег новым (дней)
+		"SHOW_CHAIN" => "Y",	// Показывать цепочку навигации
+		"SORT" => "NAME",	// Сортировка тегов
+		"TAGS_INHERIT" => "Y",	// Сужать область поиска
+		"URL_SEARCH" => "/search/index.php",	// Путь к странице поиска (от корня сайта)
+		"WIDTH" => "100%",	// Ширина облака тегов (пример: "100%" или "100px", "100pt", "100in")
+		"arrFILTER" => "",	// Ограничение области поиска
+	),
+	false
+); ?>
+
    <!---- //End-tag-weight---->
 </div>
 <div class="clearfix"> </div>
 
+<!-- теги открыты в хэдэре -->
 </div>
 </div>
 <!-- /Blog -->
