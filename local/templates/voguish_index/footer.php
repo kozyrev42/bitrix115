@@ -21,7 +21,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 	false
 ); ?>
 
-   <h3>Recent Posts</h3>
+   <h3>Последние посты</h3>
    <!-- отключил верстку, ниже вставлен компонент -->
    <!-- <div class="blo-top">
       <div class="blog-grids">
@@ -122,7 +122,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
       false
    ); ?>
 
-   <h3>Categories</h3>
+   <h3>Категории</h3>
    <!-- заменяем на компонент -->
    <!-- <div class="blo-top">
       <li><a href="#">|| Lorem Ipsum passage</a></li>
@@ -165,7 +165,7 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
       false
    ); ?>
 
-   <h3>Newsletter</h3>
+   <h3>Новостная рассылка</h3>
    <div class="blo-top">
       <div class="name">
          <form>
