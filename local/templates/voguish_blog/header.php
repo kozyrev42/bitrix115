@@ -14,6 +14,7 @@ $asset = Asset::getInstance();
 /* .min. подключатся автоматически */
 $asset->addCss(SITE_TEMPLATE_PATH . "/css/bootstrap.css");
 $asset->addCss(SITE_TEMPLATE_PATH . "/css/style.css");
+$asset->addCss(SITE_TEMPLATE_PATH . "/fancybox/jquery.fancybox.css"); /* стили плагина */
 
 /* нужно также связать подключенные файлы с телом страницы  $APPLICATION->ShowHead() в теге <head>*/
 
@@ -21,6 +22,7 @@ $asset->addCss(SITE_TEMPLATE_PATH . "/css/style.css");
 $asset->addJs(SITE_TEMPLATE_PATH . "/js/jquery.min.js");
 $asset->addJs(SITE_TEMPLATE_PATH . "/js/responsiveslides.min.js");
 $asset->addJs(SITE_TEMPLATE_PATH . "/js/jquery.flexisel.js");  /* нижний слайдер */
+$asset->addJs(SITE_TEMPLATE_PATH . "/fancybox/jquery.fancybox.pack.js"); /* скрипт плагина */
 
 /* подключение ШРИФТОВ */
 $asset->addString("<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900' rel='stylesheet' type='text/css'>");
