@@ -72,7 +72,7 @@ new BX.PhoneAuth({
 <?else:?>
 
 <script type="text/javascript">
-<!--
+
 var opened_sections = [<?
 $arResult["opened"] = $_COOKIE[$arResult["COOKIE_PREFIX"]."_user_profile_open"];
 $arResult["opened"] = preg_replace("/[^a-z0-9_,]/i", "", $arResult["opened"]);
