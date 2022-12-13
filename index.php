@@ -3,14 +3,14 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("Сайт моды");
 ?>
 
-<?
+<!-- <?
 global $USER;
 if ($USER->IsAuthorized()) {echo "Вы авторизованы!";
 } else {
    echo "Вы НЕ авторизованы!";
 };
 
-?>
+?> -->
 
 <!-- ТОЛЬКО КОНТЕНТ, С КОТОРЫМ БУДЕТ РАБОТАТЬ МЕНЕДЖЕР ДОЛЖЕН ВХОДИТЬ В ВОРКАРЕА -->
 <!-- banner -->

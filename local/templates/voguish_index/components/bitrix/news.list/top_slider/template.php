@@ -12,6 +12,7 @@
 /** @var CBitrixComponent $component */
 $this->setFrameMode(true);
 ?>
+
 <!-- удалил дефолтную верстку -->
 <!-- вставил свою верстку -->
 <div class="header-slider">
@@ -20,7 +21,6 @@ $this->setFrameMode(true);
 			<ul class="rslides" id="slider">
 
 				<?php foreach ($arResult["ITEMS"] as $arItem) : ?>
-					<!-- <?dd($arItem);?> -->
 					<li>
 						<img src="<?= $arItem["DETAIL_PICTURE"]["SRC"] ?>" class="img-responsive" alt="">
 						<div class="caption">
