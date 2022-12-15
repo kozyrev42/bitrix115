@@ -15,6 +15,14 @@ $this->setFrameMode(true);
 ?>
 
 
+
+<!-- скрипт фэнси бокс -->
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+</script>
+
 <!-- встроенный шаблон, был, удалён -->
 
 <!-- мой шаблон -->
@@ -31,8 +39,6 @@ $this->setFrameMode(true);
 	<?php endforeach;?>
 <?php endif;?>	
 
-
-
 <div class="artical-links">
 	<ul>
 		<li><small> </small><span><?= $arResult["DISPLAY_ACTIVE_FROM"] ?></span></li>
@@ -44,37 +50,3 @@ $this->setFrameMode(true);
 		<li><a href="<?= $arResult["DETAIL_PAGE_URL"] ?>"><small class="link"> </small><span>permalink</span></a></li>
 	</ul>
 </div>
-
-<?$APPLICATION->IncludeComponent(
-	"bitrix:catalog.comments",
-	".default",
-	Array(
-		"BLOG_TITLE" => "Комментарии",
-		"BLOG_URL" => "catalog_comments",
-		"BLOG_USE" => "Y",
-		"CACHE_TIME" => "0",
-		"CACHE_TYPE" => "A",
-		"CHECK_DATES" => "Y",
-		"COMMENTS_COUNT" => "5",
-		"ELEMENT_CODE" => "",
-		"ELEMENT_ID" => $arResult["ID"],
-		"EMAIL_NOTIFY" => "N",
-		"FB_USE" => "N",
-		"IBLOCK_ID" => "3",
-		"IBLOCK_TYPE" => "content",
-		"PATH_TO_SMILE" => "/bitrix/images/blog/smile/",
-		"SHOW_DEACTIVATED" => "N",
-		"SHOW_RATING" => "N",
-		"SHOW_SPAM" => "Y",
-		"TEMPLATE_THEME" => "blue",
-		"URL_TO_COMMENT" => $arResult["DETAIL_PAGE_URL"],
-		"VK_USE" => "N",
-		"WIDTH" => "200"
-	)
-);?>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$(".fancybox").fancybox();
-	});
-</script>
